@@ -1,0 +1,16 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src", // diretorio raiz
+    "outDir": "./dist", // diretorio de saida aonde vai acontecer
+
+    //Environment Settings
+    "target": "es2020", //
+    "module": "nodenext", //
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
