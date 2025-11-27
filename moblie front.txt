@@ -1,0 +1,72 @@
+moblie front
+
+npx //baixa 
+npm // executa
+
+// formas de criar
+opção 1: npx create-expo-app@latest --template blank // cria com menos coisas
+
+opção 2: npx npx create-expo-app@latest // cria com mais coisa
+
+npm start //inicia 
+
+ctrl + c //parar a inicialização 
+
+npm run reset-project //serve para limpar e reiniciar um projeto que venha com pre configuraçoes
+
+//para usar incons para mobile
+import {Ionicons} from "@expo/vector-icons";
+icon?: keyof typeof Ionicons.glyphMap;
+npm i @expo/vector-icons // pacote para incons precisa colocar no terminal cmd para baixar os pacote
+
+app.get("/corpo", (req:Request, res:Response, next:NextFunction)=>{
+  const nome = req.body.nome;  
+  console.log("variavel dentro do copo - cliente digitou", nome);
+  res.send(`variavel dentro do copo - voce digitou o nome:  ${nome}`);
+})
+
+
+// app.get("/parametro/:nome", (req:Request, res:Response, next:NextFunction)=>{
+//   const nome = req.params.nome;  
+//   console.log("Rota de paramentro - cliente digitou", nome);
+//   res.send(`voce digitou o nome:  ${nome}`);
+// })
+
+// app.get("/query", (req:Request, res:Response, next:NextFunction)=>{
+//   const nome = req.query.nome;  
+//   console.log("cliente digitou", nome);
+//   res.send(`voce digitou o nome:  ${nome}`);
+// })
+
+// app.get("/exemplo", (req:Request, res:Response, next:NextFunction)=>{
+// console.log('aconteceu algo...')
+// res.send("rodou tudo certo");
+// });
+
+// //rota genetica para representar e aparecer hello world
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//   res.send("hello world!!");
+// });
+
+// //rota de erro
+// app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+//   res.send(err);
+//   res.status(500).send("Erro na requisição");
+// });
+
+
+class tarefa{
+    id: number;
+    nome: string;
+    descricao: string;
+
+    private static proximoID = 1;
+
+    constructor(nome:string, descricao:string){
+        this.id = tarefa.proximoID++;
+        this.nome = nome;
+        this.descricao = descricao;
+        
+    }
+    
+}

@@ -1,4 +1,4 @@
-class tarefa{
+ export default class Tarefa{
     id: number;
     nome: string;
     descricao: string;
@@ -6,7 +6,7 @@ class tarefa{
     private static proximoID = 1;
 
     constructor(nome:string, descricao:string){
-        this.id = tarefa.proximoID++;
+        this.id = Tarefa.proximoID++;
         this.nome = nome;
         this.descricao = descricao;
         
