@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import loginRepository from "../repositories/loginRepository";
 import { validarSenha } from "../utils/senha";
-import{createJWT} from "../utils/jwt";
+import { createJWT } from "../utils/jwt";
 
 async function login(req: Request, res: Response, next: NextFunction) {
     const { email, senha } = req.body;
@@ -15,21 +15,21 @@ async function login(req: Request, res: Response, next: NextFunction) {
     //consulta no banco de dados
     try {
         const result = await loginRepository.validarLogin(email);
-        if(!result) {throw new Error();}
+        if (!result) { throw new Error(); }
 
         //remove senha do usuario
-        const { senha:$senha, ...usuario} = result;
+        const { senha: $senha, ...usuario } = result;
 
         //token
         const token = createJWT(usuario);
-        res.status(200).json({ token });
+        res.status(200).json(token);
 
-        console.log('resultado: ', await validarSenha(senha, result.senha))
     } catch (error) {
         console.log(error);
         return res.status(402).json({ message: "Internal server error." });
     }
-    return res.sendStatus(200);
 };
+
+
 
 export default { login };

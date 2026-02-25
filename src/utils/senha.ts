@@ -1,7 +1,5 @@
 import bcrypt from "bcrypt";
 
-
-
 const SALT = 10
 
 export async function gerarSenha(senha: string){
