@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "compilerOptions": {
     // File Layout
     "rootDir": "src",
@@ -7,6 +8,17 @@
     //Environment Settings
     "target": "es2020",
     "module": "nodenext",
+=======
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src", // diretorio raiz
+    "outDir": "./dist", // diretorio de saida aonde vai acontecer
+
+    //Environment Settings
+    "target": "es2020", //
+    "module": "nodenext", //
+>>>>>>> 1cd80fb90a6c9a8ae1a0d2f93a8e032bc4a69142
 
     "strict": true,
     "esModuleInterop": true,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 root = true;
 
 [*.ts]
@@ -5,3 +6,11 @@ root = true;
 indent_style = space
 indent_size = 2
 insert_final_newline = true
+=======
+root = true
+
+[*.ts] 
+indent_style = space
+indent_style = 2
+insert_final_newline = true
+>>>>>>> 1cd80fb90a6c9a8ae1a0d2f93a8e032bc4a69142

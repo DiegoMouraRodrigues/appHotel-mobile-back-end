@@ -1,20 +1,33 @@
 {
+<<<<<<< HEAD
   "name": "apphotel-backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+=======
+  "name": "teste",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+>>>>>>> 1cd80fb90a6c9a8ae1a0d2f93a8e032bc4a69142
     "build": "tsc",
     "start": "node dist/index.js",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
+<<<<<<< HEAD
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "teste": "jest --watchAll"
+=======
+    "test": "jest --watchAll"
+>>>>>>> 1cd80fb90a6c9a8ae1a0d2f93a8e032bc4a69142
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -28,6 +41,16 @@
     "@types/express": "^5.0.5",
     "@types/jest": "^30.0.0",
     "@types/jsonwebtoken": "^9.0.10",
+=======
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/jest": "^30.0.0",
+>>>>>>> 1cd80fb90a6c9a8ae1a0d2f93a8e032bc4a69142
     "@types/node": "^24.10.0",
     "jest": "^30.2.0",
     "prettier": "^3.6.2",
