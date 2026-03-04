@@ -1,44 +1,34 @@
-
 import {pool} from "../database/database"
-import {ResultSetHeader, RowDataPacket } from "mysql2";
+import {Login, dadosLogin} from "../models/login"
+import { QueryResult, ResultSetHeader} from "mysql2"
 
-async function fazerPedido(data:any){
-    const sql = `INSERT INTO pedidos (cliente_id, pagamento)
-        VALUES (?, ?)`;
- 
-    try {
-        const [result] = await pool.query<ResultSetHeader>(sql, [
-            data.cliente_id,
-            data.pagamento
-        ]);
-        // apenas retorna o ID do novo pedido
-        return result.insertId;
-    } catch (err) {
-        console.error('Erro ao criar pedido:', err);
-        return null;
-    }
-}
-
-async function fazerReserva(idPedido:number, quarto:any) {
-    const sql = `INSERT INTO reservas (pedido_id, quarto_id, data_inicio, data_fim) 
-    VALUES (?, ?, ?, ?)`
-
-    try {
-        const [result] = await pool.query<ResultSetHeader>(sql, [
-            idPedido,
-            quarto.id,
-            quarto.dataInicio,
-            quarto.dataFim,
-        ]);
-        // apenas retorna o ID do novo pedido
-        return result.insertId;
-    } catch (err) {
-        console.error('Erro ao reservar o quarto:', err);
-        return null;
-    }
+async function validarLogin(email:string):Promise<Login|null>{
+    const sql = `SELECT clientes.id, clientes.nome, clientes.email, clientes.senha, roles.nome AS cargo
+    FROM clientes
+    JOIN roles ON roles.id = clientes.cargo_id WHERE clientes.email = ?`;
     
+    const [rows] = await pool.query<Login[]>(sql, [email])
+    return rows.length ? rows[0] : null
 }
+
+async function cadastrarLogin(dadosLogin:dadosLogin):Promise<Login|null>{
+    const sql = `INSERT INTO clientes (nome, cpf, telefone, email, senha) VALUES (?, ?, ?, ?, ?)`;
+ 
+    const [result] = await pool.query<ResultSetHeader>(sql, [
+        dadosLogin.nome,
+        dadosLogin.cpf,
+        dadosLogin.telefone,
+        dadosLogin.email,
+        dadosLogin.senha,
+    ]);
+    if (result.insertId){
+        const resultado:Login  = {id:result.insertId, ...dadosLogin, cargo:"cliente"} as Login
+        return resultado
+    }
+    return null;
+}
+
 
 export default{
-    fazerPedido, fazerReserva
+    validarLogin, cadastrarLogin
 }

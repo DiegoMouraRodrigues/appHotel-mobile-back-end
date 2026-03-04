@@ -25,12 +25,12 @@ test("POST: /api/reserva = 200", async()=>{
             pagamento: "pix",
             quartos: [
                 {
-                    id: 13,
+                    id: 2,
                     dataInicio: "2026/02/19",
                     dataFim: "2026/02/20",
                 },
                 {
-                    id: 14,
+                    id: 5,
                     dataInicio: "2026/02/19",
                     dataFim: "2026/02/20",
                 }
@@ -41,5 +41,5 @@ test("POST: /api/reserva = 200", async()=>{
     });
     expect(resp.status).toBe(200);
     const json = await resp.json()
-    // console.log(json)
+    console.log(json)
 })

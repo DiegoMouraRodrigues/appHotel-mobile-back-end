@@ -10,5 +10,5 @@ test("POST: /api/quartosDisponiveis = 200", async()=>{
     });
     expect(resp.status).toBe(200);
     const json = await resp.json()
-    // console.log(json)
+    console.log(json)
 })
